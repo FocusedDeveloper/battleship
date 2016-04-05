@@ -1,14 +1,20 @@
 # depslib dependency file v1.0
-1458856742 source:e:\codeblocks\battleship2\main.cpp
+1459742638 source:e:\codeblocks\battleship2\main.cpp
 	<iostream>
+	<string>
+	<ctime>
+	<cstdlib>
 	"Ship.h"
 	"Coordinate.h"
+	"Board.h"
+	"Player.h"
+	"LostTarget.h"
 
-1458856880 e:\codeblocks\battleship2\ship.h
+1459729524 e:\codeblocks\battleship2\ship.h
 	"Coordinate.h"
 	<string>
 
-1458857018 e:\codeblocks\battleship2\coordinate.h
+1459729524 e:\codeblocks\battleship2\coordinate.h
 
 1459719396 source:f:\codeblocks\battleship2\ship.cpp
 	"Ship.h"
@@ -50,7 +56,7 @@
 	<iostream>
 	<cstdlib>
 
-1459728128 f:\codeblocks\battleship2\player.h
+1459872824 f:\codeblocks\battleship2\player.h
 	"battle.h"
 	"Ship.h"
 	"Board.h"
@@ -74,4 +80,52 @@
 	<string>
 	<fstream>
 	<ctime>
+
+1459720868 source:e:\codeblocks\battleship2\board.cpp
+	"Board.h"
+	<iomanip>
+	<ctime>
+	<cstdlib>
+	<sstream>
+	<limits>
+	<iostream>
+
+1459720180 e:\codeblocks\battleship2\board.h
+	"Ship.h"
+
+1459728128 e:\codeblocks\battleship2\player.h
+	"battle.h"
+	"Ship.h"
+	"Board.h"
+	"Target.h"
+	"LostTarget.h"
+
+1459729500 e:\codeblocks\battleship2\battle.h
+	"Ship.h"
+
+1459731296 e:\codeblocks\battleship2\target.h
+	"Coordinate.h"
+	"Ship.h"
+
+1459730450 e:\codeblocks\battleship2\losttarget.h
+	<iostream>
+	<string>
+	<fstream>
+	<ctime>
+
+1459719396 source:e:\codeblocks\battleship2\ship.cpp
+	"Ship.h"
+	<string>
+	<iostream>
+
+1459732402 source:e:\codeblocks\battleship2\target.cpp
+	"Target.h"
+	<iostream>
+	<cstdlib>
+
+1459743164 source:e:\codeblocks\battleship2\player.cpp
+	"Player.h"
+	<iomanip>
+	<iostream>
+	<cstdlib>
 

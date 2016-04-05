@@ -507,16 +507,8 @@ ShipPtr Player::getTargetedShip(Coordinate myCoord) const
 
 }
 
-// Handles attacking another player. Retrieves attack Coordinate
-    // and updates board and ship if one is hit
-void Player::launchAttack(Player& enemy)
+void Player::getAttackResults(Player& enemy, Coordinate& myCoord, char& attackChar)
 {
-    Coordinate myCoord;
-    char attackChar;
-    string prompt;
-    ShipPtr target = NULL;
-
-    string buffer;
 
     // Loop controls getting a valid attack coordinate
     do{
@@ -563,6 +555,22 @@ void Player::launchAttack(Player& enemy)
 
 
     }while(attackChar == Board::ERR_CHAR);                              // exit loop once we have a good character
+
+}
+
+// Handles attacking another player. Retrieves attack Coordinate
+    // and updates board and ship if one is hit
+void Player::launchAttack(Player& enemy)
+{
+    Coordinate myCoord;
+    char attackChar;
+    string prompt;
+    ShipPtr target = NULL;
+
+    string buffer;
+
+    getAttackResults(enemy, myCoord, attackChar);
+
 
     enemy.board.updateBoard(attackChar,myCoord);                        // update the board
     enemy.displayBoard();                                               // display the board...

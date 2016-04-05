@@ -64,6 +64,11 @@ class Player
         void setShips();
         void setLoss();
 
+        // passed a player to attack, this function gets a valid attack Coordinate and...
+            // returns the Coordinate and char by reference
+        // PRE: Pass the function the player being attack, the coordinate to be used, and a char for the result
+        void getAttackResults(Player&, Coordinate&, char&);
+
 
         //Functions to manage linked list of ships
             // TBD: move to separate class, create list template
