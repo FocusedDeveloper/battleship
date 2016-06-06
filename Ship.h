@@ -2,15 +2,19 @@
 #define SHIP_H
 #include "Coordinate.h"
 #include <string>
-
+#include <iostream>
 
 using std::string;
-
+using std::ostream;
 
 
 class Ship
 {
+    friend ostream& operator<<(ostream&, const Ship&);
+
     public:
+
+
         // Tracks Orientation of Ship
         enum Orientation{ vertical, horizontal };
 
@@ -23,9 +27,13 @@ class Ship
             // POST: Deep copy of original ship is made
         Ship(const Ship&);
 
+
         // Assignment Operator - Makes a deep copy of ship
         Ship& operator=(const Ship&);
         ~Ship();
+
+        // Equal operator
+        bool operator==(const Ship&);
 
         // set's the position and orientation of ship
         void setPosition(Coordinate, Orientation );

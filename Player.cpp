@@ -3,7 +3,9 @@
 #include <iostream>
 #include <cstdlib>
 
-using namespace::std;
+#include "Player.h"
+
+using namespace std;
 
 Player::Player(int boardSize, int myNumShips, PlayerType type)
 {
@@ -215,7 +217,7 @@ void Player::createShips()
 }
 
 // Initializes a linked list of ships
-// PRE: headptr == NULL, newNodeptr has been initialized
+// PRE: headptr == NULL, newNodeptr has been
 // POST: linked list of one node has been created
 void Player::InitList(ShipPtr& headPtr, ShipPtr& newNodePtr)
 {

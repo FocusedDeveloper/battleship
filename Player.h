@@ -6,8 +6,9 @@
 #include "Board.h"
 #include "Target.h"
 #include "LostTarget.h"
+//#include "LinkedList.h"
 
-using namespace::battle;
+using namespace battle;
 
 class Player
 {
@@ -77,6 +78,6 @@ class Player
         void AddToBack(ShipPtr& , ShipPtr& );
 
         void removeShip(ShipPtr&  );
-};
 
+};
 #endif // PLAYER_H

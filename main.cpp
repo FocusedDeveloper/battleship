@@ -17,17 +17,22 @@
 #include <string>
 #include <ctime>
 #include <cstdlib>
+
+
 #include "Ship.h"
-#include "Coordinate.h"
-#include "Board.h"
+//#include "Coordinate.h"
+//#include "Board.h"
+#include "LinkedList.h"
 #include "Player.h"
-#include "LostTarget.h"
+//#include "LostTarget.h"
+
 
 
 using namespace std;
 
 void gameLoop1();
 void gameLoop2();
+void testLinkedList();
 
 
 int main()
@@ -44,6 +49,7 @@ int main()
              << "  2) Player vs CPU " << endl
 //             << "  3) Player vs Player " << endl
 //             << "  4) Player vs CPU (hard)" << endl
+            << " 4) Test Linked List" << endl
              << "  3) Exit" << endl;
         cin >> option;
 
@@ -62,10 +68,9 @@ int main()
         case 2:
             gameLoop2();            // cpu attacks once per turn
             break;
-//        case 3:
-//            cpuDiff = normal;
-//            GameLoop2(normal);          // cpu attacks twice per turn
-//            break;
+        case 4:
+            testLinkedList();
+            break;
 //        case 4:
 //            cpuDiff = hard;
 //            GameLoop2(hard);            // cpu attacks thre times per turn!
@@ -83,6 +88,71 @@ int main()
 
 
     return 0;
+}
+
+void testLinkedList()
+{
+    LinkedList<Ship> myList;
+    int option;
+    int myNum;
+    char myChar;
+    string shipName = "DefaultShip";
+    Ship myShip;
+
+    do
+    {
+        cout<<"Enter an option" << endl
+            <<" 1) add to list " <<endl
+            <<" 2) remove from list " <<endl
+            <<" 3) print list "<< endl
+            <<" 4) delete list " <<endl
+            <<" 5) exit "<<endl;
+        cin>>option;
+        if(!cin)
+        {
+            cin.clear();
+        }
+
+        cin.ignore(500, '\n');
+        cout<<endl;
+
+        switch (option)
+        {
+            case 1: cout<<"Add) Input a ship size: ";
+                    cin>>myNum;
+                    myShip = Ship(shipName,myNum);
+                    myList.addToFront(myShip);
+                    break;
+
+            case 2: cout<<"Del) Input a ship size: ";
+                    cin>>myNum;
+                    myShip = Ship(shipName,myNum);
+                    myList.removeComponent(myShip);
+                    break;
+
+            case 3: myList.printList();
+                    cout<<endl;
+                    break;
+
+            case 4: cout<<"This will delete the list" <<endl
+                    << "Are you sure? Yes (Y) or No (N): ";
+                    cin>> myChar;
+                    myChar = toupper(myChar);
+                    if(myChar == 'Y')
+                        myList.deleteList();
+                    break;
+
+            case 5: cout<<"Exiting"<<endl;
+                    break;
+
+            default: cout<<"Invalid option"<<endl;
+                    cin.clear();
+                    cin.ignore(500, '\n');
+                    break;
+        }
+    }while( option != 5 );
+
+
 }
 
 void gameLoop1()
@@ -171,5 +241,6 @@ void gameLoop2()
         }
         cout<<"(Input any character to continue)"<<endl;
         cin>>myChar;
-
 }
+
+

@@ -18,6 +18,9 @@ namespace battle
     };
 
 
+
+
+
 }
 
 #endif // BATTLE_H_INCLUDED

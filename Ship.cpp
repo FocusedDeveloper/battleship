@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-using namespace::std;
+using namespace std;
 
 // Constructors
 Ship::Ship()
@@ -61,6 +61,66 @@ Ship& Ship::operator=(const Ship& origShip)
         position.yCoord = origShip.position.yCoord;
     }
     return *this;
+
+
+}
+
+ostream& operator<<(ostream& out, const Ship& myShip)
+{
+    out<<endl;
+    out<<"Ship name: "<<myShip.name<<endl
+        <<"Ship size: "<<myShip.size<<endl
+        <<"Ship position: ("<<myShip.position.xCoord<<", "<<myShip.position.yCoord<<")"<<endl
+        <<"Ship orientation: ";
+    if(myShip.orientation == Ship::vertical)
+        out<<"vertical."<<endl;
+    else
+        out<<"horizontal."<<endl;
+    out<<"Ship alive: ";
+    if(myShip.alive)
+        out<<"true"<<endl;
+    else
+        out<<"false"<<endl;
+    if(myShip.hitbox!= nullptr)
+    {
+        for(int i = 0; i < myShip.size; i++)
+        {
+            if(myShip.hitbox[i] == true)
+                out<<"#";
+            else
+                out<<"*";
+        }
+    }
+    return out;
+}
+
+bool Ship::operator==(const Ship &other)
+{
+    //cout<<"Name: "<<name<<"<- "<<endl;
+    //cout<<"Name: "<<other.name<<"<- "<<endl;
+
+    if(other.name.compare(name) !=  0 )
+    {
+        cout<<"strings are not equal"<<endl;
+        return false;
+    }
+
+    //cout<<"Name check"<<endl;
+    //if(other.orientation != orientation)
+       // return false;
+    //cout<<"orientation check"<<endl;
+    if(other.position.xCoord != position.xCoord)
+        return false;
+    //cout<<"x check"<<endl;
+    if(other.position.yCoord != position.yCoord)
+        return false;
+    //cout<<"y check"<<endl;
+    if(other.size != size )
+        return false;
+   // cout<<"ALL checks"<<endl;
+
+    return true;
+
 }
 
 // destructor

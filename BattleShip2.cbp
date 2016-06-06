@@ -39,6 +39,7 @@
 		<Unit filename="Board.cpp" />
 		<Unit filename="Board.h" />
 		<Unit filename="Coordinate.h" />
+		<Unit filename="LinkedList.h" />
 		<Unit filename="LostTarget.h" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
